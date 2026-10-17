@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6d45b8">
+  <title>GunplaDB — Find your next build</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="GunplaDB home"><span class="brand-mark">G</span> Gunpla<span>DB</span></a>
+    <span class="header-note">Your next build starts here</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">THE GUNPLA KIT DATABASE</p>
+      <h1 id="page-title">Find your next <span>build.</span></h1>
+      <p class="intro">Search kits, explore grades, and get ready for your next project.</p>
+
+      <form id="search-form" class="search-form" role="search">
+        <label class="visually-hidden" for="kit-search">Search Gunpla kits</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="kit-search" name="name" type="search" placeholder="Search kits by name..." autocomplete="off">
+        <button class="search-submit" type="submit">Search</button>
+      </form>
+
+      <div class="filters" aria-label="Filter by grade">
+        <span class="filter-label">BROWSE BY GRADE</span>
+        <div class="filter-buttons">
+          <button class="filter-button is-active" type="button" data-category="" aria-pressed="true">All kits</button>
+          <button class="filter-button" type="button" data-category="HG" aria-pressed="false">HG</button>
+          <button class="filter-button" type="button" data-category="MG" aria-pressed="false">MG</button>
+          <button class="filter-button" type="button" data-category="RG" aria-pressed="false">RG</button>
+          <button class="filter-button" type="button" data-category="PG" aria-pressed="false">PG</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kit-detail" class="kit-detail" aria-labelledby="detail-title" hidden>
+      <button id="detail-close" class="detail-back" type="button">← Back to results</button>
+      <div id="detail-content"></div>
+      <p id="detail-message" class="results-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="results" aria-labelledby="results-title">
+      <div class="results-heading">
+        <div><p class="eyebrow">THE COLLECTION</p><h2 id="results-title">Explore kits</h2></div>
+        <span id="result-count" class="result-count"></span>
+      </div>
+      <p id="results-message" class="results-message" role="status" aria-live="polite">Loading kits…</p>
+      <div id="kit-grid" class="kit-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span class="brand brand-small"><span class="brand-mark">G</span> Gunpla<span>DB</span></span><span>Built for builders.</span></footer>
+</body>
+</html>
